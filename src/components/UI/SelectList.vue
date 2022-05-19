@@ -1,5 +1,5 @@
 <template>
-  <select class="form-select" v-model="modelValue">
+  <select class="form-select" v-model="modelValue" @select="changeOption">
     <option disabled selected value="">Open this select menu</option>
     <option v-for="option in options" :key="option.id" :value="option.value">{{ option.name }}</option>
   </select>
@@ -18,8 +18,9 @@ export default {
     }
   },
   methods: {
-    changeOption(e) {
-      this.$emit('update:modelValue', e.target.value);
+    changeOption(event) {
+      console.log(event.target.value);
+      this.$emit('update:modelValue', event.target.value);
     }
   }
 };

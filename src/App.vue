@@ -28,7 +28,7 @@ export default {
     return {
       posts: [],
       isLoading: false,
-      selectedSort: "",
+      selectedSort: '',
       sortOptions: [
         { value: "title", name: "По названию" },
         { value: "body", name: "По содержимому" },
@@ -64,6 +64,11 @@ export default {
   mounted() {
     this.artificialFetchPosts();
   },
+  watch: {
+    selectedSort: function (newValue) {
+      console.log(newValue);
+    }
+  }
 };
 </script>
 
